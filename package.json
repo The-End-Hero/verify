@@ -1,18 +1,31 @@
 {
   "name": "verify-wxp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "tsc -p .",
-    "b":"npm run build",
+    "b": "npm run build",
     "version": "npm version prerelease",
-    "v":"mpm run v",
-    "publish": "npm run b && npm publish",
-    "p":"npm run publish",
+    "v": "mpm run v",
+    "publish": "npm run b && npm run version && npm publish",
+    "p": "npm run publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "src/*.js",
+    "src/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "keywords": [],
-  "author": "wangxiping <527409987@qq.com> (https://www.wangxiping.top)",
-  "license": "MIT"
+  "author": "xiping.wang <527409987@qq.com> (https://www.wangxiping.top)",
+  "license": "MIT",
+  "homepage": "https://github.com/The-End-Hero/verify"
 }
