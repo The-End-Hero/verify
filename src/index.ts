@@ -52,8 +52,27 @@ const regexs: IFOBJ = {
     chinese: /^[\u0391-\uFFE5]+$/,
     percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
 }
-
-const _testHook: IFOBJ = {
+interface IFtesthook {
+    [index: string]: any
+    is_email: any,
+    is_ip: any,
+    is_fax: any,
+    is_tel: any,
+    is_phone: any,
+    is_url: any,
+    is_money: any,
+    is_english: any,
+    is_chinese: any,
+    is_percent: any,
+    required: any,
+    max_length: any,
+    min_length: any,
+    same: any,
+    different: any,
+    contains: any,
+    accepted: any,
+}
+const _testHook: IFtesthook = {
     // 验证合法邮箱
     is_email: function (field: any) {
         return regexs.email.test(backVal(field));
@@ -219,7 +238,6 @@ export class Validator {
     public handles: any
     public form: any
     public _passes: any
-
     constructor(formelm: any, fields: any, callback: any) {
         for (let key in _testHook) {
             this[camelCase(key)] = _testHook[key];
