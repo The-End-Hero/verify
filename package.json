@@ -1,16 +1,14 @@
 {
   "name": "verify-wxp",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "b": "npm run build && npm run build:min",
-    "version": "npm version patch",
-    "v": "mpm run v",
-    "prepublish":"npm run b && npm run version",
-    "p": "npm run publish",
+    "vp": "npm version patch",
+    "prepublish": "npm run b && npm run vp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:min": "uglifyjs src/index.js -mco dist/verify.min.js "
   },
