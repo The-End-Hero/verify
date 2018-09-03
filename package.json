@@ -1,17 +1,18 @@
 {
   "name": "verify-wxp",
-  "version": "1.0.3-0",
+  "version": "1.0.3",
   "description": "",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
-    "b": "npm run build",
-    "version": "npm version prerelease",
+    "b": "npm run build && npm run build:min",
+    "version": "npm version patch",
     "v": "mpm run v",
-    "publish": "npm run b && npm run version && npm publish",
+    "prepublish":"npm run b && npm run version",
     "p": "npm run publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:min": "uglifyjs src/index.js -mco dist/verify.min.js "
   },
   "files": [
     "index.js",
@@ -20,6 +21,7 @@
     "src/*.d.ts",
     "src/**/*.js",
     "src/**/*.d.ts",
+    "dist/*.js",
     "README.md",
     "LICENSE",
     "package.json"
@@ -38,5 +40,8 @@
   ],
   "author": "xiping.wang <527409987@qq.com> (https://www.wangxiping.top)",
   "license": "MIT",
-  "homepage": "https://github.com/The-End-Hero/verify"
+  "homepage": "https://github.com/The-End-Hero/verify",
+  "devDependencies": {
+    "uglify-js": "^3.4.9"
+  }
 }
