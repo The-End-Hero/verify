@@ -178,12 +178,12 @@ function attributeValue(element: any, attributeName: any) {
  * @param  {[type]} string [字符串]
  * @return {[type]}        [字符串]
  */
-// function camelCase(string: any) {
-//     // Support: IE9-11+
-//     return string.replace(/\_([a-z])/g, function (all: any, letter: any) {
-//         return letter.toUpperCase();
-//     });
-// }
+function camelCase(string: any) {
+    // Support: IE9-11+
+    return string.replace(/\_([a-z])/g, function (all: any, letter: any) {
+        return letter.toUpperCase();
+    });
+}
 
 /**
  * [backVal 判断 field 是否为字符串 ]
@@ -227,6 +227,100 @@ function addField(self: any, field: any, nameValue: any) {
     }
 }
 
+class _test {
+    // 验证合法邮箱
+    isEmail(field: any) {
+        return regexs.email.test(backVal(field));
+    }
+
+    // 验证合法 ip 地址
+    isIp(field: any) {
+        return regexs.ip.test(backVal(field));
+    }
+
+    // 验证传真
+    isFax(field: any) {
+        return regexs.fax.test(backVal(field));
+    }
+
+    // 验证座机
+    isTel(field: any) {
+        return regexs.fax.test(backVal(field));
+    }
+
+    // 验证手机
+    isPhone(field: any) {
+        return regexs.phone.test(backVal(field));
+    }
+
+    // 验证URL
+    isUrl(field: any) {
+        return regexs.url.test(backVal(field));
+    }
+
+    isMoney(field: any) {
+        return regexs.money.test(backVal(field));
+    }
+
+    isEnglish(field: any) {
+        return regexs.english.test(backVal(field));
+    }
+
+    isChinese(field: any) {
+        return regexs.chinese.test(backVal(field));
+    }
+
+    isPercent(field: any) {
+        return regexs.percent.test(backVal(field));
+    }
+
+    // 是否为必填
+    required(field: any) {
+        let value = backVal(field);
+        if (field.type === "checkbox" || field.type === "radio") {
+            return field.checked === true;
+        }
+        return value !== null && value !== "";
+    }
+
+    // 最大长度
+    maxLength(field: any, length: any) {
+        if (!regexs.numericRegex.test(length)) return false;
+        return backVal(field).length <= parseInt(length, 10);
+    }
+
+    // 最小长度
+    minLength(field: any, length: any) {
+        if (!regexs.numericRegex.test(length)) return false;
+        return backVal(field).length >= parseInt(length, 10);
+    }
+
+    // 指定字段内容是否相同
+    same(field: any, newField: any) {
+        let value1 = backVal(field);
+        // let value2 = backVal(this.fields[newField].element);
+        let value2 = backVal(newField);
+        return value1 == value2;
+    }
+
+    // 拒绝与某个字段相等,比如登录密码与交易密码情况
+    different(field: any, newField: any) {
+        return !this.same(field, newField);
+    }
+
+    // 直接判断字符串是否相等
+    contains(field: any, value: any) {
+        let value1 = backVal(field);
+        return value1 == value;
+    }
+
+    // 用于服务条款,是否同意时相当有用,不限制checkbox与radio,有可能submit button直接附带value情况
+    accepted(field: any) {
+        let value = backVal(field);
+        return "YES" == value.toUpperCase() || "ON" == value.toUpperCase() || 1 == value || false == value ? true : false;
+    }
+}
+
 /**
  * 表单验证
  * @constructor
@@ -234,20 +328,22 @@ function addField(self: any, field: any, nameValue: any) {
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-export class Validator {
+class Validator extends _test {
     public callback: any
     public errors: any
     public fields: any
     public handles: any
     public form: any
     public _passes: any
-    public _testHook: any
+
+    // public _testHook: any
 
     constructor(formelm: any, fields: any, callback: any) {
+        super()
         // for (let key in _testHook) {
         //     this[camelCase(key)] = _testHook[key];
         // }
-        this._testHook = _testHook
+        // this._testHook = _testHook
         this.callback = callback || function () {
         };
         this.errors = [];
@@ -367,3 +463,4 @@ export class Validator {
     }
 }
 
+export {Validator,_test}
