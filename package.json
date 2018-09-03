@@ -24,7 +24,18 @@
     "LICENSE",
     "package.json"
   ],
-  "keywords": [],
+  "keywords": [
+    "validator",
+    "validator.tool",
+    "validator.js",
+    "validation",
+    "validate",
+    "sanitization",
+    "sanitize",
+    "sanitisation",
+    "sanitise",
+    "assert"
+  ],
   "author": "xiping.wang <527409987@qq.com> (https://www.wangxiping.top)",
   "license": "MIT",
   "homepage": "https://github.com/The-End-Hero/verify"

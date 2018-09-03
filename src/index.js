@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * regexs {} 正则对象
  * _testHook {} 正则验证钩子
@@ -338,4 +337,4 @@ var Validator = /** @class */ (function () {
     };
     return Validator;
 }());
-exports.Validator = Validator;
+// export {Validator}
