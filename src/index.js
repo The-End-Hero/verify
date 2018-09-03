@@ -206,9 +206,10 @@ function addField(self, field, nameValue) {
  */
 var Validator = /** @class */ (function () {
     function Validator(formelm, fields, callback) {
-        for (var key in _testHook) {
-            this[camelCase(key)] = _testHook[key];
-        }
+        // for (let key in _testHook) {
+        //     this[camelCase(key)] = _testHook[key];
+        // }
+        this._testHook = _testHook;
         this.callback = callback || function () {
         };
         this.errors = [];

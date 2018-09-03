@@ -12,6 +12,7 @@ export declare class Validator {
     handles: any;
     form: any;
     _passes: any;
+    _testHook: any;
     constructor(formelm: any, fields: any, callback: any);
     validate(evt: any): this;
     passes(): this;

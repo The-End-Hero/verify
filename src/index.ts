@@ -52,8 +52,10 @@ const regexs: IFOBJ = {
     chinese: /^[\u0391-\uFFE5]+$/,
     percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
 }
+
 interface IFtesthook {
     [index: string]: any
+
     is_email: any,
     is_ip: any,
     is_fax: any,
@@ -72,6 +74,7 @@ interface IFtesthook {
     contains: any,
     accepted: any,
 }
+
 const _testHook: IFtesthook = {
     // 验证合法邮箱
     is_email: function (field: any) {
@@ -175,12 +178,12 @@ function attributeValue(element: any, attributeName: any) {
  * @param  {[type]} string [字符串]
  * @return {[type]}        [字符串]
  */
-function camelCase(string: any) {
-    // Support: IE9-11+
-    return string.replace(/\_([a-z])/g, function (all: any, letter: any) {
-        return letter.toUpperCase();
-    });
-}
+// function camelCase(string: any) {
+//     // Support: IE9-11+
+//     return string.replace(/\_([a-z])/g, function (all: any, letter: any) {
+//         return letter.toUpperCase();
+//     });
+// }
 
 /**
  * [backVal 判断 field 是否为字符串 ]
@@ -192,7 +195,7 @@ function backVal(field: any) {
 }
 
 /**
- * [_formElm 获取 dome 节点对象]
+ * [_formElm 获取 dom 节点对象]
  * @param  {[type]} elm [字符串或者节点对象]
  * @return {[type]}     [返回dom节点]
  */
@@ -238,10 +241,13 @@ export class Validator {
     public handles: any
     public form: any
     public _passes: any
+    public _testHook: any
+
     constructor(formelm: any, fields: any, callback: any) {
-        for (let key in _testHook) {
-            this[camelCase(key)] = _testHook[key];
-        }
+        // for (let key in _testHook) {
+        //     this[camelCase(key)] = _testHook[key];
+        // }
+        this._testHook = _testHook
         this.callback = callback || function () {
         };
         this.errors = [];
@@ -263,10 +269,7 @@ export class Validator {
         let _onsubmit = this.form.onsubmit;
         this.form.onsubmit = function (that) {
             return function (evt: any) {
-                // console.log(1)
                 try {
-                    // console.log(2)
-                    // console.log(_onsubmit, '_onsubmit')
                     return that.validate(evt) && (_onsubmit === undefined || _onsubmit());
                 } catch (e) {
                     console.log(e)
