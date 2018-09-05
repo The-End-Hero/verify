@@ -2,6 +2,8 @@
 
 一款小巧无依赖的表单验证库，支持独立字符串验证。
 
+[![MIT Licence](https://camo.githubusercontent.com/1e5d6c593654e3673fe4323032b7af9656157b1e/68747470733a2f2f6261646765732e66726170736f66742e636f6d2f6f732f6d69742f6d69742e7376673f763d313033)](https://opensource.org/licenses/mit-license.php)
+
 ### 安装/使用
 
 
