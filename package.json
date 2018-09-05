@@ -8,7 +8,7 @@
     "build": "tsc -p .",
     "b": "npm run build && npm run build:min",
     "vp": "npm version patch",
-    "prepublish": "npm run b && npm run vp",
+    "prepare": "npm run b && npm run vp",
     "test": "npx cypress open",
     "build:min": "uglifyjs src/index.js -mco dist/verify.min.js "
   },
