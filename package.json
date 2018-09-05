@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
-    "build": "tsc -p ./src",
+    "build": "tsc -p .",
     "b": "npm run build && npm run build:min",
     "vp": "npm version patch",
     "prepare": "npm run b && npm run vp",
