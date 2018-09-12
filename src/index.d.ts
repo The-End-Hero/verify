@@ -19,6 +19,7 @@ interface IFtesthook {
     is_english: any;
     is_chinese: any;
     is_percent: any;
+    is_id: any;
     required: any;
     max_length: any;
     min_length: any;

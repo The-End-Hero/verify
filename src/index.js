@@ -47,7 +47,11 @@ var regexs = {
     money: /^(0|[1-9]\d*)(\.\d+)?$/,
     english: /^[A-Za-z]+$/,
     chinese: /^[\u0391-\uFFE5]+$/,
-    percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
+    percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/,
+    /**
+     * 身份证号
+     */
+    id: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/
 };
 var _testHook = {
     // 验证合法邮箱
@@ -85,6 +89,9 @@ var _testHook = {
     },
     is_percent: function (field) {
         return regexs.percent.test(backVal(field));
+    },
+    is_id: function (field) {
+        return regexs.id.test(backVal(field));
     },
     // 是否为必填
     required: function (field) {
@@ -337,4 +344,3 @@ var Validator = /** @class */ (function () {
     };
     return Validator;
 }());
-// export {Validator}

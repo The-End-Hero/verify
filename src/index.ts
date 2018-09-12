@@ -50,7 +50,11 @@ const regexs: IFOBJ = {
     money: /^(0|[1-9]\d*)(\.\d+)?$/,
     english: /^[A-Za-z]+$/,
     chinese: /^[\u0391-\uFFE5]+$/,
-    percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
+    percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/,
+    /**
+     * 身份证号
+     */
+    id:/(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/
 }
 
 interface IFtesthook {
@@ -66,6 +70,7 @@ interface IFtesthook {
     is_english: any,
     is_chinese: any,
     is_percent: any,
+    is_id:any,
     required: any,
     max_length: any,
     min_length: any,
@@ -111,6 +116,9 @@ const _testHook: IFtesthook = {
     },
     is_percent: function (field: any) {
         return regexs.percent.test(backVal(field));
+    },
+    is_id: function (field: any) {
+        return regexs.id.test(backVal(field));
     },
     // 是否为必填
     required: function (field: any) {
@@ -371,5 +379,3 @@ class Validator {
         return this;
     }
 }
-
-// export {Validator}
