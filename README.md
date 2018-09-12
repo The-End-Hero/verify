@@ -26,6 +26,17 @@ npm i --save verify-wxp
 
 ### 独立字符串验证
 
+- [x] 邮箱
+- [x] ip地址
+- [x] 传真地址
+- [x] 手机号
+- [x] 座机号
+- [x] URL
+- [x] 最大长度
+- [x] 最小长度
+- [x] 必填
+- [x] 身份证
+
 ```javascript
 var v = new Validator();
 v.isEmail('wowohoo@qq.com'); // -> 验证合法邮箱  |=> 返回布尔值
