@@ -242,7 +242,7 @@ function addField(self: any, field: any, nameValue: any) {
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-class Validator {
+class verify_wxp {
     public callback: any
     public errors: any
     public fields: any

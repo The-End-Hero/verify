@@ -1,4 +1,4 @@
-export as namespace ValidatorLib;
+export as namespace verify_wxpLib;
 interface IFOBJ {
     [index: string]: any;
 }
@@ -69,8 +69,8 @@ declare function addField(self: any, field: any, nameValue: any): void;
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-export = Validator
-declare class Validator {
+export = verify_wxp
+declare class verify_wxp {
     callback: any;
     errors: any;
     fields: any;

@@ -121,8 +121,8 @@ function addField(self, field, nameValue) {
         }
     }
 }
-var Validator = (function () {
-    function Validator(formelm, fields, callback) {
+var verify_wxp = (function () {
+    function verify_wxp(formelm, fields, callback) {
         for (var key in _testHook) {
             this[camelCase(key)] = _testHook[key];
         }
@@ -154,7 +154,7 @@ var Validator = (function () {
             };
         }(this);
     }
-    Validator.prototype.validate = function (evt) {
+    verify_wxp.prototype.validate = function (evt) {
         if (this._passes)
             return this;
         this.handles["ok"] = true;
@@ -186,10 +186,10 @@ var Validator = (function () {
         }
         return this;
     };
-    Validator.prototype.passes = function () {
+    verify_wxp.prototype.passes = function () {
         this._passes = true;
     };
-    Validator.prototype._validateField = function (field) {
+    verify_wxp.prototype._validateField = function (field) {
         var rules = field.rules.split("|"), isEmpty = !field.value || field.value === "" || field.value === undefined;
         var _loop_1 = function (i, ruleLength) {
             var method = rules[i];
@@ -241,6 +241,6 @@ var Validator = (function () {
         }
         return this;
     };
-    return Validator;
+    return verify_wxp;
 }());
 //# sourceMappingURL=index.js.map
