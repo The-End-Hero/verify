@@ -1,6 +1,6 @@
 {
-  "name": "verify_wxp",
-  "version": "1.0.3",
+  "name": "verify-wxp",
+  "version": "1.0.11",
   "description": "",
   "main": "./src/index",
   "scripts": {
