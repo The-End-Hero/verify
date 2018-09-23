@@ -2,8 +2,8 @@
   "name": "verify-wxp",
   "version": "1.0.8",
   "description": "",
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
+  "main": "/src/index.js",
+  "types": "/src/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "b": "npm run build && npm run build:min",
