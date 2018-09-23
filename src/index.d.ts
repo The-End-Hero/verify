@@ -1,3 +1,4 @@
+export as namespace ValidatorLib;
 interface IFOBJ {
     [index: string]: any;
 }
@@ -68,7 +69,8 @@ declare function addField(self: any, field: any, nameValue: any): void;
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-export declare class Validator {
+export = Validator
+declare class Validator {
     callback: any;
     errors: any;
     fields: any;
