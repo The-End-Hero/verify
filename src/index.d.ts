@@ -1,5 +1,4 @@
-export as namespace verify_wxp
-
+export as namespace verify_wxpLib
 interface IFOBJ {
     [index: string]: any;
 }
