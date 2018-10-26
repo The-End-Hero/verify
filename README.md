@@ -1,10 +1,10 @@
-# [jslib-base](https://github.com/yanhaijing/jslib-base)
-[![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yanhaijing/jslib-base/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/yanhaijing/jslib-base.svg?branch=master)](https://travis-ci.org/yanhaijing/jslib-base)
-[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/jslib-base)
-[![NPM downloads](http://img.shields.io/npm/dm/jslib-base.svg?style=flat-square)](http://www.npmtrends.com/jslib-base)
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/yanhaijing/jslib-base.svg)](http://isitmaintained.com/project/yanhaijing/jslib-base "Percentage of issues still open")
+# [verify](https://github.com/xiping.wang/verify)
+[![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/xiping.wang/verify)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/xiping.wang/verify/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/xiping.wang/verify.svg?branch=master)](https://travis-ci.org/xiping.wang/verify)
+[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/verify)
+[![NPM downloads](http://img.shields.io/npm/dm/verify.svg?style=flat-square)](http://www.npmtrends.com/verify)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/xiping.wang/verify.svg)](http://isitmaintained.com/project/xiping.wang/verify "Percentage of issues still open")
 
 最好用的js第三方库脚手架，fork或clone本仓库，即可搭建完成一个新库的基础框架
 
@@ -52,25 +52,25 @@
 通过npm下载安装代码
 
 ```bash
-$ npm install --save jslib-base
+$ npm install --save verify
 ```
 
 如果你是node环境
 
 ```js
-var base = require('jslib-base');
+var base = require('verify');
 ```
 
 如果你是webpack等环境
 
 ```js
-import base from 'jslib-base';
+import base from 'verify';
 ```
 
 如果你是requirejs环境
 
 ```js
-requirejs(['node_modules/jslib-base/dist/index.aio.js'], function (base) {
+requirejs(['node_modules/verify/dist/index.aio.js'], function (base) {
     // xxx
 })
 ```
@@ -78,12 +78,12 @@ requirejs(['node_modules/jslib-base/dist/index.aio.js'], function (base) {
 如果你是浏览器环境
 
 ```html
-<script src="node_modules/jslib-base/dist/index.aio.js"></script>
+<script src="node_modules/verify/dist/index.aio.js"></script>
 ```
 
 ## 文档
-- [API](https://github.com/yanhaijing/jslib-base/blob/master/doc/api.md)
-- [2018年如何写一个现代的JavaScript库](https://yanhaijing.com/javascript/2018/08/17/2020-js-lib/)
+- [API](https://github.com/xiping.wang/verify/blob/master/doc/api.md)
+- [2018年如何写一个现代的JavaScript库](https://xiping.wang.com/javascript/2018/08/17/2020-js-lib/)
 
 ## 贡献者指南
 首次运行需要先安装依赖
@@ -128,13 +128,13 @@ $ npm publish
 $ npm run rename # 重命名命令
 ```
 ## 贡献者列表
-[contributors](https://github.com/yanhaijing/jslib-base/graphs/contributors)
+[contributors](https://github.com/xiping.wang/verify/graphs/contributors)
 
 ## 更新日志
-[CHANGELOG.md](https://github.com/yanhaijing/jslib-base/blob/master/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/xiping.wang/verify/blob/master/CHANGELOG.md)
 
 ## 计划列表
-[TODO.md](https://github.com/yanhaijing/jslib-base/blob/master/TODO.md)
+[TODO.md](https://github.com/xiping.wang/verify/blob/master/TODO.md)
 
 ## 谁在使用
 

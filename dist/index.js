@@ -1,3 +1,11 @@
+/*!
+ * verify 0.1.0 (https://github.com/xiping.wang/verify)
+ * API https://github.com/xiping.wang/verify/blob/master/doc/api.md
+ * Copyright 2017-2018 xiping.wang. All Rights Reserved
+ * Licensed under MIT (https://github.com/xiping.wang/verify/blob/master/LICENSE)
+ */
+
+'use strict';
 
 // umd方案 自执行函数 闭包 避免作用于污染
 // 方案优雅降级
@@ -46,7 +54,7 @@ var regexs = {
     english: /^[A-Za-z]+$/,
     chinese: /^[\u0391-\uFFE5]+$/,
     percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
-}
+};
 var _testHook = {
     // 验证合法邮箱
     is_email: function (field) {
@@ -123,15 +131,14 @@ var _testHook = {
         var value = backVal(field);
         return "YES" == value.toUpperCase() || "ON" == value.toUpperCase() || 1 == value || false == value ? true : false;
     }
-}
-/**
- * 表单验证函数
- * @constructor
- * @param {string} 表单form元素name/id
- * @param {array} 表单验证规则
- * @param {function} 回调函数
- */
-var Validator = function (formelm, fields, callback) {
+    /**
+     * 表单验证函数
+     * @constructor
+     * @param {string} 表单form元素name/id
+     * @param {array} 表单验证规则
+     * @param {function} 回调函数
+     */
+};var Validator = function (formelm, fields, callback) {
     // console.log(formelm, 'formelm')
     // console.log(fields, 'fields')
     // console.log(callback, 'callback')
@@ -139,8 +146,7 @@ var Validator = function (formelm, fields, callback) {
 
     // 将验证方法绑到 Validator 对象上去
     for (var a in _testHook) this[camelCase(a)] = _testHook[a];
-    this.callback = callback || function () {
-    };
+    this.callback = callback || function () {};
     // console.log(this.form, 'this.form')
     this.errors = [];
     this.fields = {};
@@ -167,13 +173,11 @@ var Validator = function (formelm, fields, callback) {
                 // console.log(_onsubmit, '_onsubmit')
                 return that.validate(evt) && (_onsubmit === undefined || _onsubmit());
             } catch (e) {
-                console.log(e)
+                console.log(e);
             }
         };
     }(this);
-
-
-}
+};
 Validator.prototype = {
     /**
      * [_validator 在提交表单时进行验证。或者直接调用validate]
@@ -188,7 +192,8 @@ Validator.prototype = {
         this.errors = [];
         for (var key in this.fields) {
             if (this.fields.hasOwnProperty(key)) {
-                var field = this.fields[key] || {}, element = this.form[field.name];
+                var field = this.fields[key] || {},
+                    element = this.form[field.name];
                 if (element && element !== undefined) {
                     field.id = attributeValue(element, "id");
                     field.element = element;
@@ -340,4 +345,4 @@ function addField(self, field, nameValue) {
     }
 }
 
-export default Validator
+module.exports = Validator;

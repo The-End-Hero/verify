@@ -2,8 +2,8 @@ var path = require('path');
 
 var cdkit = require('cdkit')
 
-var fromName = 'jslib-base';
-var toName = 'yanhajing';
+var fromName = '';
+var toName = '';
 
 var curPathName = __dirname.split('/').pop();
 
