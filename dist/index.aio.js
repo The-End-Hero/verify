@@ -215,13 +215,13 @@
      * @param {array} 表单验证规则
      * @param {function} 回调函数
      */
-    let Validator = function (formelm, fields, callback) {
+    let Verify = function (formelm, fields, callback) {
         // console.log(formelm, 'formelm')
         // console.log(fields, 'fields')
         // console.log(callback, 'callback')
         // console.log(this, 'this')
 
-        // 将验证方法绑到 Validator 对象上去
+        // 将验证方法绑到 Verify 对象上去
         for (let a in _testHook$1) this[camelCase(a)] = _testHook$1[a];
         this.callback = callback || function () {};
         // console.log(this.form, 'this.form')
@@ -256,7 +256,7 @@
         }(this);
     };
 
-    Validator.prototype = {
+    Verify.prototype = {
         /**
          * [_validator 在提交表单时进行验证。或者直接调用validate]
          * @param  {[type]} evt [description]
@@ -350,6 +350,6 @@
         }
     };
 
-    return Validator;
+    return Verify;
 
 })));
