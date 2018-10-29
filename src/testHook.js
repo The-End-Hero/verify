@@ -1,5 +1,5 @@
 import regexs from "./regexs";
-
+import {backVal} from './utils'
 export default _testHook = {
     // 验证合法邮箱
     is_email: function (field) {
