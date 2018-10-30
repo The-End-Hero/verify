@@ -9,10 +9,15 @@ import {attributeValue, camelCase, _formElm, addField} from './utils'
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-let Verify = function (formelm, fields, callback) {
-    
+function Verify(formelm, fields, callback) {
+    if (
+        !(this instanceof Verify)
+    ) {
+        warn('Verify is a constructor and should be called with the `new` keyword')
+    }
     // 将验证方法绑到 Verify 对象上去
     for (let a in _testHook) this[camelCase(a)] = _testHook[a];
+    // 是否传入callback回调绑定
     this.callback = callback || function () {
     };
     // console.log(this.form, 'this.form')

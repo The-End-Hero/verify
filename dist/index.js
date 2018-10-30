@@ -50,7 +50,11 @@ var regexs$1 = regexs = {
   money: /^(0|[1-9]\d*)(\.\d+)?$/,
   english: /^[A-Za-z]+$/,
   chinese: /^[\u0391-\uFFE5]+$/,
-  percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/
+  percent: /^(?:[1-9][0-9]?|100)(?:\.[0-9]{1,2})?$/,
+  /**
+   * 身份证验证 15位/18位，最为一位可为X
+   */
+  id: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/
 };
 
 /**
@@ -147,6 +151,10 @@ var _testHook$1 = _testHook = {
     is_phone: function (field) {
         return regexs$1.phone.test(backVal(field));
     },
+    // 验证身份证
+    is_id: function (field) {
+        return this.regexs.id.test(this.backVal(field));
+    },
     // 验证URL
     is_url: function (field) {
         return regexs$1.url.test(backVal(field));
@@ -211,14 +219,13 @@ var _testHook$1 = _testHook = {
  * @param {array} 表单验证规则
  * @param {function} 回调函数
  */
-let Verify = function (formelm, fields, callback) {
-    // console.log(formelm, 'formelm')
-    // console.log(fields, 'fields')
-    // console.log(callback, 'callback')
-    // console.log(this, 'this')
-
+function Verify(formelm, fields, callback) {
+    if (!(this instanceof Verify)) {
+        warn('Verify is a constructor and should be called with the `new` keyword');
+    }
     // 将验证方法绑到 Verify 对象上去
     for (let a in _testHook$1) this[camelCase(a)] = _testHook$1[a];
+    // 是否传入callback回调绑定
     this.callback = callback || function () {};
     // console.log(this.form, 'this.form')
     this.errors = [];
@@ -250,7 +257,7 @@ let Verify = function (formelm, fields, callback) {
             }
         };
     }(this);
-};
+}
 
 Verify.prototype = {
     /**
