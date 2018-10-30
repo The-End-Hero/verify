@@ -21,6 +21,10 @@ export default _testHook = {
     is_phone: function (field) {
         return regexs.phone.test(backVal(field));
     },
+    // 验证身份证
+    is_id: function (field) {
+        return this.regexs.id.test(this.backVal(field));
+    },
     // 验证URL
     is_url: function (field) {
         return regexs.url.test(backVal(field));

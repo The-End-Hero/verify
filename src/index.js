@@ -10,11 +10,7 @@ import {attributeValue, camelCase, _formElm, addField} from './utils'
  * @param {function} 回调函数
  */
 let Verify = function (formelm, fields, callback) {
-    // console.log(formelm, 'formelm')
-    // console.log(fields, 'fields')
-    // console.log(callback, 'callback')
-    // console.log(this, 'this')
-
+    
     // 将验证方法绑到 Verify 对象上去
     for (let a in _testHook) this[camelCase(a)] = _testHook[a];
     this.callback = callback || function () {

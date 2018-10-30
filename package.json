@@ -21,10 +21,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/xiping.wang/verify.git"
+    "url": "git://github.com/The-End-Hero/verify.git"
   },
   "bugs": {
-    "url": "https://github.com/xiping.wang/verify/issues"
+    "url": "https://github.com/The-End-Hero/verify/issues"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
